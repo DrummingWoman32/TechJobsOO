@@ -41,6 +41,27 @@ namespace TechJobs.Controllers
             // new Job and add it to the JobData data store. Then
             // redirect to the Job detail (Index) action/view for the new Job.
 
+            if(ModelState.IsValid)
+            {
+
+                Job newJob = new Job
+                {
+
+                    //Employer = newJobViewModel.Employers[newJobViewModel.EmployerID;
+                    Employer = newJobViewModel.EmployerID;
+                    Location = newJobViewModel.Location;
+                    CoreCompetency = newJobViewModel.CoreCompetency;
+                    PositionType = newJobViewModel.PositionType;
+                    
+                };
+
+                jobData.Jobs.Add(newJob);
+                //return Redirect(Index(newJob.ID));
+                //return Redirect("/Job");
+
+
+            }
+
             return View(newJobViewModel);
         }
     }
