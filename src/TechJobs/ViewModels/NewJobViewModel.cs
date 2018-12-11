@@ -20,15 +20,15 @@ namespace TechJobs.ViewModels
 
         [Required]
         [Display(Name = "Location")]
-        public string Location { get; set; }
+        public int LocationID { get; set; }
 
         [Required]
         [Display(Name = "Core Competency")]
-        public string CoreCompetency { get; set; }
+        public int CoreCompetencyID { get; set; }
 
         [Required]
         [Display(Name = "Position Type")]
-        public string PositionType { get; set; }
+        public int PositionTypeID { get; set; }
 
         public List<SelectListItem> Employers { get; set; } = new List<SelectListItem>();
         public List<SelectListItem> Locations { get; set; } = new List<SelectListItem>();
