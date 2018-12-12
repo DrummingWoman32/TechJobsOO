@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using TechJobs.Data;
 using TechJobs.Models;
 using TechJobs.ViewModels;
@@ -55,9 +56,21 @@ namespace TechJobs.Controllers
                 };
 
                 jobData.Jobs.Add(newJob);
-                return Redirect
-                //return Redirect(Index(newJob.ID));
-                //return Redirect("/Job");
+               
+
+                try
+                {
+                    //return Redirect("/Job");
+                    return RedirectToPage("/Job?id={0}", newJob.ID);
+                    //left off here, I'm in the process of redirecting to the
+                    //single job display page for the new job
+                }
+                catch (System.InvalidOperationException e)
+                {
+                    Console.WriteLine("Trouble redirecting, here's the issue: " + e.Message);
+                }
+                
+                
 
 
             }
