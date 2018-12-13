@@ -11,6 +11,7 @@ namespace TechJobs.Controllers
 
         // Our reference to the data store
         private static JobData jobData;
+        
 
         static JobController()
         {
@@ -55,20 +56,22 @@ namespace TechJobs.Controllers
                     
                 };
 
+                //Console.WriteLine("Now I will add the job to jobData.");
                 jobData.Jobs.Add(newJob);
-               
+                //Console.WriteLine("I just added the new job.");
 
-                try
-                {
-                    //return Redirect("/Job");
-                    return RedirectToPage("/Job?id={0}", newJob.ID);
-                    //left off here, I'm in the process of redirecting to the
-                    //single job display page for the new job
-                }
-                catch (System.InvalidOperationException e)
+
+                //try
+                //{
+                //return Redirect("/Job");
+                return RedirectToPage(String.Format("/job?id={0}", newJob.ID));
+                
+                
+                //}
+                /*catch (System.InvalidOperationException e)
                 {
                     Console.WriteLine("Trouble redirecting, here's the issue: " + e.Message);
-                }
+                }*/
                 
                 
 
