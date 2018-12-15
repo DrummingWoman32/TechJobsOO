@@ -48,34 +48,23 @@ namespace TechJobs.Controllers
 
                 Job newJob = new Job
                 {
-
+                    Name = newJobViewModel.Name,
                     Employer = jobData.Employers.Find(newJobViewModel.EmployerID),
                     Location = jobData.Locations.Find(newJobViewModel.LocationID),
                     CoreCompetency = jobData.CoreCompetencies.Find(newJobViewModel.CoreCompetencyID),
                     PositionType = jobData.PositionTypes.Find(newJobViewModel.PositionTypeID)
                     
                 };
-
-                //Console.WriteLine("Now I will add the job to jobData.");
+                
                 jobData.Jobs.Add(newJob);
-                //Console.WriteLine("I just added the new job.");
-
-
-                //try
-                //{
+                
                 //return Redirect("/Job");
-                return RedirectToPage(String.Format("/job?id={0}", newJob.ID));
+                //return RedirectToPage(String.Format("/job?id={0}", newJob.ID));
+                //return RedirectToPage("/Job?id={0}", newJob.ID);
+                //return RedirectToAction("Index(newJob.ID)");
+                return RedirectToAction("Index", new { id = newJob.ID });
                 
-                
-                //}
-                /*catch (System.InvalidOperationException e)
-                {
-                    Console.WriteLine("Trouble redirecting, here's the issue: " + e.Message);
-                }*/
-                
-                
-
-
+             
             }
 
             return View(newJobViewModel);
