@@ -57,14 +57,17 @@ namespace TechJobs.Controllers
                 };
                 
                 jobData.Jobs.Add(newJob);
-                
+
                 //return Redirect("/Job");
                 //return RedirectToPage(String.Format("/job?id={0}", newJob.ID));
                 //return RedirectToPage("/Job?id={0}", newJob.ID);
                 //return RedirectToAction("Index(newJob.ID)");
-                return RedirectToAction("Index", new { id = newJob.ID });
-                
-             
+                //return RedirectToAction("Index", new { id = newJob.ID });
+                return Redirect("/Job?id="+newJob.ID);
+                //return Redirect("/Job?id={0}", newJob.ID);
+                //return RedirectToPage("/Job?id={id}", new { id = newJob.ID });
+
+
             }
 
             return View(newJobViewModel);

@@ -4,10 +4,21 @@ using TechJobs.Models;
 
 namespace TechJobs.ViewModels
 {
-    public class JobFieldsViewModel
+    public class JobFieldsViewModel : BaseViewModel
     {
         // TODO #7.2 - Extract members common to SearchJobsViewModel
         // to BaseViewModel
+
+        /* Members common to SearchJobsViewModel:
+         * 
+         * public List<JobFieldType> Columns { get; set; }
+         * public string Title { get; set; } = "";
+         * Columns = new List<JobFieldType>();
+         * foreach (JobFieldType enumVal in Enum.GetValues(typeof(JobFieldType)))
+            {
+                Columns.Add(enumVal);
+            }
+         */
 
         // The current column
         public JobFieldType Column { get; set; }
@@ -16,23 +27,23 @@ namespace TechJobs.ViewModels
         public IEnumerable<JobField> Fields { get; set; }
 
         // All columns, for display
-        public List<JobFieldType> Columns { get; set; }
+        //public List<JobFieldType> Columns { get; set; }
 
         // View title
-        public string Title { get; set; } = "";
+        //public string Title { get; set; } = "";
 
-        public JobFieldsViewModel()
+        /*public JobFieldsViewModel()
         {
             // Populate the list of all columns
 
-            Columns = new List<JobFieldType>();
+            //Columns = new List<JobFieldType>();
 
-            foreach (JobFieldType enumVal in Enum.GetValues(typeof(JobFieldType)))
+            /*foreach (JobFieldType enumVal in Enum.GetValues(typeof(JobFieldType)))
             {
                 Columns.Add(enumVal);
-            }
+            }*/
 
 
-        }
+        //}
     }
 }
